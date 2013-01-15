@@ -1,5 +1,6 @@
 import couchdb
 
+
 class CouchDBAdaptor:
     """CouchDB adaptor for Basenji"""
 
