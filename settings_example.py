@@ -114,6 +114,18 @@ logging = {
         }
     },
 
+    # Loggers that we can use
+    "loggers": {
+        # The default basenji logger
+        "basenji": {
+            # Minimum level to log
+            "level": "DEBUG",
+
+            # Handlers we should send the log message to
+            "handlers": ["console", "file"]
+        }
+    },
+
     # Root logger
     'root': {
         # Minimum level to log
