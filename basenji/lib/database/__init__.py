@@ -1,0 +1,1 @@
+from couchdb_adaptor import CouchDBAdaptor
