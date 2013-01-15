@@ -1,5 +1,4 @@
 import couchdb
-import logging
 
 
 class CouchDBAdaptor:
@@ -30,13 +29,13 @@ class CouchDBAdaptor:
                 return db[doc]
             except Exception:
                 # We have no document with that id, report
-                logging.warn("Tried to get document with id '%s' that does not exist" % (doc))
+                print("Tried to get document with id '%s' that does not exist" % (doc))
 
                 # Return None since we do not have any document
                 return None
         else:
             # Since the database does not exit the document doesn't exist either
-            logging.warn("Tried to fetch document from non-existing database %s, possibly misspelled" % (name))
+            print("Tried to fetch document from non-existing database %s, possibly misspelled" % (name))
 
             # Return None since we do not have any document
             return None
