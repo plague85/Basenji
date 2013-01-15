@@ -1,4 +1,5 @@
 import couchdb
+import logging
 
 
 class CouchDBAdaptor:
