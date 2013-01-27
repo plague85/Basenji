@@ -29,6 +29,9 @@ develop-eggs
 .installed.cfg
 settings.py
 
+# Documents
+doc/_build
+
 # Installer logs
 pip-log.txt
 
