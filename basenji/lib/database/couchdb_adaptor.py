@@ -21,7 +21,7 @@ class CouchDBAdaptor:
         """Gets the document associated with the ID from the given database"""
 
         if name in self.couch:
-            # Load the database or create it if not existing
+            # Load the database
             db = self.get_or_create_db(name)
 
             # Try the get the document from the database
@@ -40,3 +40,23 @@ class CouchDBAdaptor:
 
             # Return None since we do not have any document
             return None
+
+    def add(self, name, docs):
+        """Preforms an bulk update or insert to the database"""
+
+        if name in self.couch:
+            # Load the database
+            db = self.get_or_create_db(name)
+
+            # List containing any failed documents
+            failed_docs = list()
+
+            # Save the documents to the database
+            for doc in db.update(docs):
+                # Check so that all inserts or updates went okay
+                if not doc[0]:
+                    # Store the '_id' for the document that failed
+                    failed_docs.append(doc[1])
+
+            # Return failed_docs when done
+            return failed_docs
